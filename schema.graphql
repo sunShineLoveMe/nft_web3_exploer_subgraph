@@ -36,3 +36,20 @@ type Transfer @entity(immutable: true) {
   blockTimestamp: BigInt!
   transactionHash: Bytes!
 }
+
+#记录每次的Transfer事件(非必要)
+type QLTransfer @entity {
+  id: ID!
+  from: Bytes! # address
+  to: Bytes! # address
+  tokenId: BigInt!
+  tokenURI: String!
+}
+
+#记录Metadata数据
+type MetaData @entity {
+  id: ID!
+  owner:Bytes!
+  name: String
+  image: String
+}
